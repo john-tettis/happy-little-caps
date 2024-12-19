@@ -5,7 +5,8 @@
 exports.up = function(knex) {
     return knex.schema.createTable('hats', table => {
         table.increments('id').primary();
-        table.string('name').notNullable();
+        table.string('name').notNullable().unique();
+        table.integer("quantity").notNullable();
         table.string('primary_color').notNullable();
         table.string('material').notNullable();
         table.integer('brim_size').notNullable();
