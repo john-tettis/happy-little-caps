@@ -5,8 +5,7 @@
 exports.up = function(knex) {
     return knex.schema.createTable('shipping', table => {
         table.increments('id').primary();
-        table.integer("order_id").notNullable();
-        table.foreign("order_id").references("orders.id");
+        table.integer("order_id").notNullable().references("id").inTable("orders");
         table.string('address').notNullable();
         table.string('city').notNullable();
         table.string('state').notNullable();
@@ -22,5 +21,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  
+    return knex.schema.dropTable('shipping');
 };
