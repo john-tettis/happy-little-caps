@@ -5,7 +5,7 @@
 exports.up = function(knex) {
     return knex.schema.createTable('reviews', table => {
         table.increments('id').primary();
-        table.integer("hat_id").notNullable().references("id").inTable("hats");
+        table.integer("product_id").notNullable().references("id").inTable("products");
         table.string("name").notNullable();
         table.string("email").notNullable();
         table.text("message").notNullable();

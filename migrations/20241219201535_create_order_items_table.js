@@ -6,7 +6,7 @@ exports.up = function(knex) {
     return knex.schema.createTable('order_items', table => {
         table.increments('id').primary();
         table.integer("order_id").notNullable().references("id").inTable("orders");
-        table.integer("hat_id").notNullable().references("id").inTable("hats");
+        table.integer("product_id").notNullable().references("id").inTable("products");
         table.integer("quantity").notNullable();
     })
   
