@@ -7,10 +7,9 @@ exports.up = function(knex) {
         table.increments('id').primary();
         table.string('name').notNullable().unique();
         table.integer("quantity").notNullable();
+        table.string("description").notNullable();
         table.string('primary_color').notNullable();
         table.string('material').notNullable();
-        table.integer('brim_size').notNullable();
-        table.integer('height').notNullable();
         table.decimal('price').notNullable();
       })
 };
