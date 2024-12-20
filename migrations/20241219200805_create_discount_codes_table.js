@@ -6,7 +6,8 @@ exports.up = function(knex) {
     return knex.schema.createTable('discount_codes', table => {
         table.increments('id').primary();
         table.string('code').notNullable().unique();
-        table.decimal('discount_percent').notNullable();
+        table.string('type').notNullable();
+        table.decimal('amount').notNullable();
         table.dateTime('valid_from').notNullable();
         table.dateTime('valid_to').notNullable();
     })
