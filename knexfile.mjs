@@ -1,9 +1,9 @@
-require('dotenv').config();
-
+import dotenv from "dotenv"
+dotenv.config()
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
-module.exports = {
+export default  {
 
   development: {
     client: 'postgresql',
@@ -17,6 +17,7 @@ module.exports = {
       max: 10
     },
     migrations: {
+      directory: './migrations',
       tableName: 'knex_migrations'
     }
     
