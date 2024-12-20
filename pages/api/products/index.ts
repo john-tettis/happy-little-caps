@@ -6,8 +6,8 @@ export default async function handler(req:any, res:any) {
   switch (req.method) {
     case 'GET' : {
       try {
-        const hats = await db('hats').select('*');
-        res.status(200).json(hats);
+        const products = await db('products').select('*');
+        res.status(200).json(products);
       } catch (error) {
         console.error('Error fetching products:', error);
         res.status(500).json({ error: 'Failed to fetch products' });
@@ -18,14 +18,15 @@ export default async function handler(req:any, res:any) {
         const { 
           name,
           price,
+          type,
           quantity,
           description,
           material, 
           primary_color,
           image_url
         } = req.body;
-        const hat = await db('hats').insert({ name, price, quantity, description, material, primary_color,image_url}).returning('*');
-        res.status(201).json(hat);
+        const product = await db('products').insert({ name, price,type, quantity, description, material, primary_color,image_url}).returning('*');
+        res.status(201).json(product);
       } catch (error) {
           console.error('Error creating product:', error);
           res.status(500).json({ error: 'Failed to create product' });
