@@ -2,6 +2,7 @@
   "name": "happy-little-caps",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -9,7 +10,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.7",
+    "jsonwebtoken": "^9.0.2",
     "knex": "^3.1.0",
     "next": "15.1.2",
     "pg": "^8.13.1",
