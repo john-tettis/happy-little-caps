@@ -11,6 +11,7 @@ exports.up = function(knex) {
         table.string('primary_color').notNullable();
         table.string('material').notNullable();
         table.decimal('price').notNullable();
+        table.string('image_url').notNullable();
       })
 };
 
