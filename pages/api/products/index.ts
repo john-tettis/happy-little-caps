@@ -6,7 +6,13 @@ export default async function handler(req:any, res:any) {
   switch (req.method) {
     case 'GET' : {
       try {
-        const products = await db('products').select('*');
+        const query = db('products')
+        const {type} = req.query; 
+        if(type){
+          query.where({type})
+
+        }
+        const products = await query.select('*');
         res.status(200).json(products);
       } catch (error) {
         console.error('Error fetching products:', error);
